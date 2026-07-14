@@ -108,11 +108,7 @@ python app/demo.py --checkpoint results/best_model.pt
 
 ---
 
-## 📈 Training Curves
 
-<p align="center">
-  <img src="results/training_curves.png" width="850"/>
-</p>
 
 ## Tech stack
 
