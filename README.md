@@ -95,16 +95,24 @@ python app/demo.py --checkpoint results/best_model.pt
 
 ## Results
 
-_Fill in after training on your machine/Colab — numbers depend on GPU budget and epochs run._
-
 | Metric | Value |
-|---|---|
-| Validation accuracy | — |
-| Macro F1 | — |
-| Training time (Colab T4) | — |
+|---------|------:|
+| Validation Accuracy | **99.35%** |
+| Macro Precision | **99.3%** |
+| Macro Recall | **99.3%** |
+| Macro F1 Score | **99.3%** |
+| Number of Classes | **38** |
+| Validation Images | **17,572** |
+| Backbone | **ResNet18 (Transfer Learning)** |
+| Hardware | **Google Colab Tesla T4 GPU** |
 
-`results/training_curves.png` and `results/confusion_matrix.png` are generated automatically
-by `train.py` / `evaluate.py`.
+---
+
+## 📈 Training Curves
+
+<p align="center">
+  <img src="results/training_curves.png" width="850"/>
+</p>
 
 ## Tech stack
 
