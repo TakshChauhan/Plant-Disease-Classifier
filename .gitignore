@@ -5,7 +5,7 @@ data/test/
 data/*.zip
 
 # Model artifacts
-results/*.pt
+#results/*.pt
 results/*.pth
 *.ckpt
 
