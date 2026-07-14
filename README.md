@@ -106,6 +106,12 @@ python app/demo.py --checkpoint results/best_model.pt
 | Backbone | **ResNet18 (Transfer Learning)** |
 | Hardware | **Google Colab Tesla T4 GPU** |
 
+## 📈 Training Curves
+
+<p align="center">
+  <img src="results/training_curves.png" width="850">
+</p>
+
 ## Tech stack
 
 Python · PyTorch · torchvision · scikit-learn · Grad-CAM (custom hook-based implementation) · Gradio · Matplotlib/Seaborn
