@@ -129,6 +129,17 @@ Python · PyTorch · torchvision · scikit-learn · Grad-CAM (custom hook-based 
 - Export to ONNX / TorchScript + quantization for on-device (mobile) inference
 - Handle class imbalance explicitly (weighted loss / oversampling) if you swap in a messier real-world dataset
 
-## License
+## Acknowledgements
 
-MIT — see `LICENSE`.
+This project was developed by applying concepts learned from the **Deep Learning and Neural Networks** course by **upGrad**, along with the official **PyTorch** and **torchvision** documentation.
+
+The project incorporates concepts including:
+
+- Convolutional Neural Networks (CNNs)
+- Transfer Learning
+- Model Fine-tuning
+- Image Classification
+- Explainable AI (Grad-CAM)
+- Model Evaluation using Accuracy, F1-score, and Confusion Matrix
+
+The **PlantVillage** dataset was used for training and evaluating the model.
