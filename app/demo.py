@@ -61,9 +61,10 @@ demo = gr.Interface(
     fn=predict,
     inputs=gr.Image(type="pil", label="Leaf photo"),
     outputs=[
-        gr.Label(num_top_classes=5, label="Prediction"),
-        gr.Image(label="Grad-CAM: what the model looked at"),
-    ],
+    gr.JSON(label="Prediction"),
+    gr.Image(label="Grad-CAM"),
+],
+    
     title="🌿 Plant Disease Classifier",
     description=(
         f"Model: {model_name} | {len(class_names)} classes. "
