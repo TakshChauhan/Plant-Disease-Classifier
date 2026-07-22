@@ -4,6 +4,10 @@ A computer vision project that classifies crop leaf images as healthy or disease
 **38 classes** using transfer learning, then explains *why* the model made each prediction
 using Grad-CAM. Includes a Gradio demo for interactive testing.
 
+## Live Demo
+
+https://plant-disease-classifier-2-8cm8.onrender.com/
+
 ## Why this project
 
 Crop diseases are a major driver of yield loss worldwide, and manual diagnosis by farmers
