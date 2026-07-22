@@ -1,10 +1,8 @@
-torch>=2.1.0
-torchvision>=0.16.0
-scikit-learn>=1.3.0
-matplotlib>=3.7.0
-seaborn>=0.12.0
-numpy>=1.24.0
-Pillow>=10.0.0
-opencv-python-headless>=4.8.0
-gradio>=4.10.0
-tqdm>=4.66.0
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+torch==2.1.2+cpu
+torchvision==0.16.2+cpu
+gradio==4.44.1
+numpy==1.26.4
+Pillow==10.4.0
+opencv-python-headless==4.10.0.84
