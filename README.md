@@ -1,4 +1,4 @@
-# 🌿 Plant Disease Classifier — Transfer Learning + Explainable AI
+# Plant Disease Classifier — Transfer Learning + Explainable AI
 
 A computer vision project that classifies crop leaf images as healthy or diseased across
 **38 classes** using transfer learning, then explains *why* the model made each prediction
@@ -134,7 +134,6 @@ Python · PyTorch · torchvision · scikit-learn · Grad-CAM (custom hook-based 
 This project was developed by applying concepts learned from the **Deep Learning and Neural Networks** course by **upGrad**, along with the official **PyTorch** and **torchvision** documentation.
 
 The project incorporates concepts including:
-
 - Convolutional Neural Networks (CNNs)
 - Transfer Learning
 - Model Fine-tuning
