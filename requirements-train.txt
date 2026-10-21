@@ -1,0 +1,5 @@
+# Extra dependencies for src/train.py and src/evaluate.py.
+-r requirements.txt
+matplotlib==3.11.2
+scikit-learn==1.9.1
+tqdm==4.70.1

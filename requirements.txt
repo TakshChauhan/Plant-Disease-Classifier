@@ -1,7 +1,10 @@
+# Runtime dependencies for inference and the Gradio demo (this is what the Render service installs).
+# Training/evaluation: requirements-train.txt. Tests and linting: requirements-dev.txt.
+# Tested with Python 3.11. torch 2.1.2 has no wheels for Python >= 3.12 and needs numpy < 2.
 torch==2.1.2
 torchvision==0.16.2
-gradio==5.38.2
-huggingface_hub>=0.28.1
 numpy==1.26.4
 Pillow==10.4.0
 opencv-python-headless==4.10.0.84
+gradio==5.38.2
+huggingface_hub>=0.28.1,<1.0  # gradio 5.38.2 predates hub 1.x support (added in gradio 5.47.2)

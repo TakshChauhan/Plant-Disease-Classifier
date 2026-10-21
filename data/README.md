@@ -9,7 +9,7 @@ It's not committed to this repo (too large for git). Download it yourself:
 
 ```bash
 pip install kaggle
-# Place your kaggle.json API token at ~/.kaggle/kaggle.json (Kaggle account -> Create New Token)
+# Place your kaggle.json API token at ~/.kaggle/kaggle.json (Kaggle account -> Settings -> Create New Token)
 kaggle datasets download -d vipoooool/new-plant-diseases-dataset -p data --unzip
 ```
 
@@ -31,6 +31,22 @@ data/
     └── (33 unlabeled images, class inferable from filename)
 ```
 
-Note: the raw Kaggle zip nests everything one level deeper (e.g.
-`New Plant Diseases Dataset(Augmented)/train/...`) — flatten it so `train/` and `valid/`
-sit directly under `data/`, or pass `--data-dir` pointing at the nested folder instead.
+Note: the raw Kaggle zip nests the splits inside one or more `New Plant Diseases Dataset(Augmented)/`
+folders. Either flatten it so `train/` and `valid/` sit directly under `data/`, or pass `--data-dir`
+pointing at the nested folder that directly contains `train/` and `valid/`. To find it:
+
+```bash
+find data -maxdepth 4 -type d -name valid
+```
+
+Use the printed path **without** the trailing `/valid`, and quote it because the folder names contain
+spaces and parentheses:
+
+```bash
+python src/evaluate.py --data-dir "<path printed by find, minus /valid>"
+```
+
+The `test/` images have no class subfolders (labels are only in the filenames), so `evaluate.py`
+cannot score them directly.
+
+Keep `kaggle.json` out of the repository: it is an API credential.

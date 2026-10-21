@@ -1,0 +1,4 @@
+# Test and lint tooling (used by CI).
+-r requirements-train.txt
+pytest==9.1.1
+ruff==0.17.1
