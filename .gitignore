@@ -9,10 +9,21 @@ data/*.zip
 results/*.pth
 *.ckpt
 
+# Training/evaluation outputs (the committed checkpoint lives directly in results/)
+results/run/
+results/colab_run/
+results/evaluation/
+
+# Gradio
+flagged/
+.gradio/
+
 # Python
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/
 venv/
 venv311/
 .venv/

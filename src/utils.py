@@ -1,4 +1,5 @@
 """Small shared helpers used across train/evaluate/demo scripts."""
+import hashlib
 import json
 import random
 from pathlib import Path
@@ -8,15 +9,26 @@ import torch
 
 
 def set_seed(seed: int = 42) -> None:
-    """Make runs reproducible across random, numpy, and torch."""
+    """Seed random, numpy, and torch.
+
+    This makes runs repeatable in practice but not bit-exact: cuDNN/MPS kernels and
+    DataLoader worker scheduling can still introduce small nondeterminism.
+    """
     random.seed(seed)
     np.random.seed(seed)
     torch.manual_seed(seed)
     torch.cuda.manual_seed_all(seed)
 
 
-def get_device() -> torch.device:
-    return torch.device("cuda" if torch.cuda.is_available() else "cpu")
+def get_device(preferred: str = "auto") -> torch.device:
+    """Pick CUDA, then Apple Silicon MPS, then CPU. `preferred` forces a specific device."""
+    if preferred != "auto":
+        return torch.device(preferred)
+    if torch.cuda.is_available():
+        return torch.device("cuda")
+    if getattr(torch.backends, "mps", None) is not None and torch.backends.mps.is_available():
+        return torch.device("mps")
+    return torch.device("cpu")
 
 
 def save_class_names(class_names, path: str) -> None:
@@ -28,6 +40,25 @@ def save_class_names(class_names, path: str) -> None:
 def load_class_names(path: str):
     with open(path) as f:
         return json.load(f)
+
+
+def pretty_class_name(name: str) -> str:
+    """'Corn_(maize)___Common_rust_' -> 'Corn (maize) — Common rust'."""
+    crop, _, condition = name.partition("___")
+
+    def tidy(text: str) -> str:
+        text = " ".join(text.replace("_", " ").split())
+        return text[:1].upper() + text[1:]
+
+    return f"{tidy(crop)} — {tidy(condition)}" if condition else tidy(crop)
+
+
+def file_sha256(path: str) -> str:
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
 
 
 class AverageMeter:
@@ -53,6 +84,8 @@ class EarlyStopping:
     """Stops training when validation metric hasn't improved for `patience` epochs."""
 
     def __init__(self, patience: int = 5, mode: str = "max"):
+        if mode not in ("max", "min"):
+            raise ValueError(f"mode must be 'max' or 'min', got {mode!r}")
         self.patience = patience
         self.mode = mode
         self.best = None
@@ -72,3 +105,9 @@ class EarlyStopping:
             if self.counter >= self.patience:
                 self.should_stop = True
         return is_best
+
+    def reset_patience(self) -> None:
+        """Start a fresh patience budget (e.g. for a new training phase) but keep `best`,
+        so checkpoint selection still compares against the best epoch of any phase."""
+        self.counter = 0
+        self.should_stop = False

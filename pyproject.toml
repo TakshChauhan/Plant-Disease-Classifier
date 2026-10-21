@@ -1,0 +1,17 @@
+# Tool configuration only; this project is run as scripts, not installed as a package.
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "app"]
+addopts = "-ra"
+markers = [
+    "checkpoint: needs the committed results/best_model.pt",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+extend-exclude = ["notebooks"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
