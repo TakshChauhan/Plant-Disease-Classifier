@@ -35,3 +35,7 @@ jobs:
       - name: Test
         # No dataset download: tests use synthetic images and the committed checkpoint
         run: pytest
+
+      - name: Test ML validation suite
+        # Standalone research tests do not need the Kaggle or PlantDoc datasets.
+        run: pytest ml_validation/tests/
