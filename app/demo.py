@@ -109,10 +109,11 @@ HEADER = """
 Upload a photo of a **single crop leaf** to get the model's top-5 classes and a Grad-CAM heatmap
 of the image regions that most influenced the top prediction.
 
-> **Experimental research demo — not a diagnostic tool.** The model was trained and validated only on
-> PlantVillage-style images (one detached leaf, plain background, controlled lighting). Its accuracy on
-> field photos has **not** been measured. Do not make treatment or crop-management decisions from it;
-> confirm any suspected disease with a qualified agronomist or plant-pathology lab.
+> **Experimental research demo — not a diagnostic tool.** This Candidate B model was additionally
+> fine-tuned for field-photo generalization. It achieved **61.23% accuracy (139/227)** on a curated
+> PlantDoc test set, but performance varies across crops and image conditions. It can still make
+> incorrect predictions, including high-confidence errors. Do not make treatment or crop-management
+> decisions from its predictions; consult a qualified agronomist or plant-pathology lab.
 """
 
 EXPLAINER = """
