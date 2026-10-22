@@ -1,0 +1,238 @@
+{
+  "metadata": {
+    "mapping_version": "1.0.0",
+    "source_dataset": {
+      "name": "PlantDoc: A Dataset for Visual Plant Disease Detection",
+      "citation": "Singh, D., Jain, N., Jain, P., Kayal, P., Kumawat, S., & Batra, N. (2020). PlantDoc: A Dataset for Visual Plant Disease Detection. Proceedings of the 7th ACM IKDD CoDS and 25th COMAD, pp. 249-253.",
+      "doi": "https://doi.org/10.1145/3371158.3371196",
+      "repository_url": "https://github.com/pratikkayal/PlantDoc-Dataset",
+      "license": "CC BY 4.0"
+    },
+    "target_checkpoint": {
+      "name": "Plant-Disease-Classifier ResNet18 (PlantVillage 38-class)",
+      "num_classes": 38,
+      "checkpoint_sha256": "f456fe4cd6042b2c031172bcdab00a40c845475a3f71fa052264d28311ed0cc9"
+    },
+    "policy": "Strict taxonomic auditing. Classes where PlantDoc's web-scraped label aggregates multiple causal pathogens beyond PlantVillage's single-pathogen definition are marked AMBIGUOUS_BROAD_DISEASE_DEFINITION and excluded under strict mode (--strict-taxonomy)."
+  },
+  "plantdoc_to_plantvillage": {
+    "Apple Scab Leaf": {
+      "plantvillage_class": "Apple___Apple_scab",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Venturia inaequalis",
+      "notes": "Direct 1-to-1 correspondence between field apple scab leaves and PlantVillage Apple___Apple_scab."
+    },
+    "Apple rust leaf": {
+      "plantvillage_class": "Apple___Cedar_apple_rust",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Gymnosporangium juniperi-virginianae",
+      "notes": "Direct 1-to-1 correspondence with Cedar apple rust."
+    },
+    "Apple leaf": {
+      "plantvillage_class": "Apple___healthy",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Healthy",
+      "notes": "Healthy apple foliage."
+    },
+    "Bell_pepper leaf": {
+      "plantvillage_class": "Pepper,_bell___healthy",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Healthy",
+      "notes": "Healthy bell pepper (Capsicum annuum) leaf."
+    },
+    "Bell_pepper leaf spot": {
+      "plantvillage_class": "Pepper,_bell___Bacterial_spot",
+      "status": "AMBIGUOUS_BROAD_DISEASE_DEFINITION",
+      "causal_agent": "Xanthomonas campestris pv. vesicatoria vs. Cercospora capsici (frogeye leaf spot) / Alternaria",
+      "notes": "Excluded by default in strict mode: PlantVillage defines specifically Bacterial spot (Xanthomonas), whereas PlantDoc 'Bell_pepper leaf spot' aggregates generic bell pepper leaf spot photos from web search that include fungal Cercospora leaf spot."
+    },
+    "Blueberry leaf": {
+      "plantvillage_class": "Blueberry___healthy",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Healthy",
+      "notes": "Healthy blueberry foliage."
+    },
+    "Cherry leaf": {
+      "plantvillage_class": "Cherry_(including_sour)___healthy",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Healthy",
+      "notes": "Healthy Prunus avium / Prunus cerasus leaf."
+    },
+    "Corn Gray leaf spot": {
+      "plantvillage_class": "Corn_(maize)___Cercospora_leaf_spot Gray_leaf_spot",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Cercospora zeae-maydis",
+      "notes": "Direct 1-to-1 correspondence for maize gray leaf spot."
+    },
+    "Corn leaf blight": {
+      "plantvillage_class": "Corn_(maize)___Northern_Leaf_Blight",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Exserohilum turcicum (Setosphaeria turcica)",
+      "notes": "PlantDoc curated Corn leaf blight following APS guidelines for Northern Corn Leaf Blight."
+    },
+    "Corn rust leaf": {
+      "plantvillage_class": "Corn_(maize)___Common_rust_",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Puccinia sorghi",
+      "notes": "Direct correspondence for maize common rust."
+    },
+    "Peach leaf": {
+      "plantvillage_class": "Peach___healthy",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Healthy",
+      "notes": "Healthy peach foliage."
+    },
+    "Potato leaf early blight": {
+      "plantvillage_class": "Potato___Early_blight",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Alternaria solani",
+      "notes": "Direct 1-to-1 correspondence for potato early blight."
+    },
+    "Potato leaf late blight": {
+      "plantvillage_class": "Potato___Late_blight",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Phytophthora infestans",
+      "notes": "Direct 1-to-1 correspondence for potato late blight."
+    },
+    "Potato leaf": {
+      "plantvillage_class": "Potato___healthy",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Healthy",
+      "notes": "Present in 29-class PlantDoc Object Detection release; excluded from 27-class classification split due to <50 images."
+    },
+    "Raspberry leaf": {
+      "plantvillage_class": "Raspberry___healthy",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Healthy",
+      "notes": "Healthy raspberry foliage."
+    },
+    "Soyabean leaf": {
+      "plantvillage_class": "Soybean___healthy",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Healthy",
+      "notes": "Spelling variant ('Soyabean leaf' in PlantDoc -> 'Soybean___healthy' in PlantVillage)."
+    },
+    "Soybean leaf": {
+      "plantvillage_class": "Soybean___healthy",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Healthy",
+      "notes": "Normalized spelling alias for Soyabean leaf."
+    },
+    "Squash Powdery mildew leaf": {
+      "plantvillage_class": "Squash___Powdery_mildew",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Podosphaera xanthii / Erysiphe cichoracearum",
+      "notes": "Direct 1-to-1 correspondence for cucurbit powdery mildew on squash."
+    },
+    "Strawberry leaf": {
+      "plantvillage_class": "Strawberry___healthy",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Healthy",
+      "notes": "Healthy strawberry foliage."
+    },
+    "Tomato Early blight leaf": {
+      "plantvillage_class": "Tomato___Early_blight",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Alternaria solani",
+      "notes": "Direct 1-to-1 correspondence for tomato early blight."
+    },
+    "Tomato Septoria leaf spot": {
+      "plantvillage_class": "Tomato___Septoria_leaf_spot",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Septoria lycopersici",
+      "notes": "Direct 1-to-1 correspondence for tomato Septoria leaf spot."
+    },
+    "Tomato leaf bacterial spot": {
+      "plantvillage_class": "Tomato___Bacterial_spot",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Xanthomonas perforans / X. vesicatoria",
+      "notes": "Direct 1-to-1 correspondence for tomato bacterial spot."
+    },
+    "Tomato leaf late blight": {
+      "plantvillage_class": "Tomato___Late_blight",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Phytophthora infestans",
+      "notes": "Direct 1-to-1 correspondence for tomato late blight."
+    },
+    "Tomato leaf mosaic virus": {
+      "plantvillage_class": "Tomato___Tomato_mosaic_virus",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Tomato mosaic virus (ToMV)",
+      "notes": "Direct 1-to-1 correspondence for ToMV."
+    },
+    "Tomato leaf yellow virus": {
+      "plantvillage_class": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Tomato yellow leaf curl virus (TYLCV)",
+      "notes": "Direct 1-to-1 correspondence for TYLCV."
+    },
+    "Tomato leaf": {
+      "plantvillage_class": "Tomato___healthy",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Healthy",
+      "notes": "Healthy tomato foliage."
+    },
+    "Tomato mold leaf": {
+      "plantvillage_class": "Tomato___Leaf_Mold",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Passalora fulva (Cladosporium fulvum)",
+      "notes": "Direct 1-to-1 correspondence for tomato leaf mold."
+    },
+    "Tomato two spotted spider mites leaf": {
+      "plantvillage_class": "Tomato___Spider_mites Two-spotted_spider_mite",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Tetranychus urticae",
+      "notes": "Present in 28-class PlantDoc release (very low sample count: ~2 images)."
+    },
+    "grape leaf": {
+      "plantvillage_class": "Grape___healthy",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Healthy",
+      "notes": "Healthy grapevine foliage."
+    },
+    "grape leaf black rot": {
+      "plantvillage_class": "Grape___Black_rot",
+      "status": "MAPPED_EXACT",
+      "causal_agent": "Guignardia bidwellii (Phyllosticta ampelicida)",
+      "notes": "Direct 1-to-1 correspondence for grape black rot."
+    }
+  },
+  "unmapped_plantvillage_classes": [
+    {
+      "plantvillage_class": "Apple___Black_rot",
+      "reason": "Absent from PlantDoc (<50 verified field images during PlantDoc curation)."
+    },
+    {
+      "plantvillage_class": "Cherry_(including_sour)___Powdery_mildew",
+      "reason": "Absent from PlantDoc."
+    },
+    {
+      "plantvillage_class": "Corn_(maize)___healthy",
+      "reason": "Absent from PlantDoc (PlantDoc contains 3 diseased corn classes but no healthy corn class)."
+    },
+    {
+      "plantvillage_class": "Grape___Esca_(Black_Measles)",
+      "reason": "Absent from PlantDoc."
+    },
+    {
+      "plantvillage_class": "Grape___Leaf_blight_(Isariopsis_Leaf_Spot)",
+      "reason": "Absent from PlantDoc."
+    },
+    {
+      "plantvillage_class": "Orange___Haunglongbing_(Citrus_greening)",
+      "reason": "Entire Citrus (Orange) genus is absent from PlantDoc (13 species vs 14 in PlantVillage)."
+    },
+    {
+      "plantvillage_class": "Peach___Bacterial_spot",
+      "reason": "Absent from PlantDoc."
+    },
+    {
+      "plantvillage_class": "Strawberry___Leaf_scorch",
+      "reason": "Absent from PlantDoc."
+    },
+    {
+      "plantvillage_class": "Tomato___Target_Spot",
+      "reason": "Absent from PlantDoc (Corynespora cassiicola target spot was excluded from PlantDoc)."
+    }
+  ]
+}

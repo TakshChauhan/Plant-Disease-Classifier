@@ -1,0 +1,15 @@
+# Standalone ML Validation & Research Suite Dependencies
+# Compatible with Python 3.11+
+# Works natively with PyTorch + torchvision when installed (see parent requirements.txt),
+# and also supports zero-PyTorch execution via onnxruntime>=1.16.0.
+numpy>=1.26.4,<3.0
+scipy>=1.11.0
+Pillow>=10.0.0
+opencv-python-headless>=4.8.0
+matplotlib>=3.8.0
+onnxruntime>=1.16.0
+# Optional (used automatically when running in the main project's Python 3.11 venv):
+# torch==2.1.2
+# torchvision==0.16.2
+# scikit-learn>=1.3.0
+# pytest>=8.0.0
